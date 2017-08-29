@@ -1,0 +1,13 @@
+{namespace nreach=Nreach\T3Data\ViewHelpers}
+<f:layout name="Plugin" />
+
+<f:section name="Plugin">
+    <div id="entitiesMountpoint">
+			entities
+    </div>
+    <script type="text/javascript">
+			require(['TYPO3/CMS/NreachT3Data/Entities'], function (Entities) {
+   			Entities(document.getElementById('entitiesMountpoint'));
+			})
+    </script>
+</f:section>

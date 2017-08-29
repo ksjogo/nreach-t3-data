@@ -9,7 +9,7 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  *
  * @category    Controller
  */
-class EntitiesController extends Controller
+class PluginController extends Controller
 {
 
     /**
