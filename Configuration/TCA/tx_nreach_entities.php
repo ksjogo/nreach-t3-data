@@ -20,9 +20,13 @@ return [
         'formdata' => [
             'label' => 'Formdata',
             'config' => [
-            'exclude' => 0,
-            'type' => 'text',
-            'renderType' => 'nreach_data_entity_formdata',
+                'exclude' => 0,
+                'type' => 'text',
+                'fieldControl' => [
+                    'nreach' => [
+                        'renderType' => 'nreach_data_entity_formdata',
+                    ]
+                ]
             ]
         ],
         'jsonld' => [
@@ -30,11 +34,15 @@ return [
             'config' => [
                 'exclude' => 0,
                 'type' => 'text',
-                'renderType' => 'nreach_data_entity_jsonld'
+                'fieldControl' => [
+                    'nreach' => [
+                        'renderType' => 'nreach_data_entity_jsonld'
+                    ]
+				]
             ]
         ],
     ],
     'types' => [
         '0' => ['showitem' => 'title, formdata, jsonld']
     ]
-    ];
+];
