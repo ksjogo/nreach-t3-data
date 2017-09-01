@@ -1,0 +1,27 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Nreach Entities</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.entities>
+						<TCEforms>
+							<label>Entities</label>
+							<config>
+								<type>select</type>
+								<foreign_table>tx_t3data_domain_model_entity</foreign_table>
+								<minitems>1</minitems>
+								<maxitems>10</maxitems>
+							</config>
+						</TCEforms>
+					</settings.entities>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

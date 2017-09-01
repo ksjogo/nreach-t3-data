@@ -19,8 +19,21 @@ if (TYPO3_MODE === 'BE') {
     );
 }
 
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+	$_EXTKEY,
+	'Configuration/TypoScript',
+	'Nreach Data'
+);
+
+
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     $_EXTKEY,
     'Plugin',
     'Nreach Entity Block'
 );
+
+$extensionName = \TYPO3\CMS\Core\Utility\GeneralUtility::underscoredToUpperCamelCase($_EXTKEY);
+$frontendpluginName = 'Plugin';
+$pluginSignature = strtolower($extensionName) . '_'.strtolower($frontendpluginName);
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/plugins.xml');

@@ -17,25 +17,7 @@ abstract class Controller extends ActionController
      * @return void
      */
     protected function initializeAction() {
-        $pageRenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
-        $pageRenderer->loadRequireJsModule('TYPO3/CMS/NreachT3Data/Entities');
-        $this->setTemplatePaths();
-    }
-
-    /**
-     * Fix the template paths
-     * @return void
-     */
-    private function setTemplatePaths(){
-        $frameworkConfiguration = $this->configurationManager->getConfiguration(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
-        $viewConfiguration = array(
-            'view' => array(
-                'templateRootPaths' => ['EXT:nreach_t3_data/Resources/Private/Templates/'],
-                'partialRootPaths' => ['EXT:nreach_t3_data/Resources/Private/Partials/'],
-                'layoutRootPaths' => ['EXT:nreach_t3_data/Resources/Private/Layouts/'],
-            )
-        );
-        $this->configurationManager->setConfiguration(array_merge($frameworkConfiguration, $viewConfiguration));
+        parent::initializeAction();
     }
 
     /**
