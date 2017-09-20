@@ -25,6 +25,10 @@ if (TYPO3_MODE === 'BE') {
 	'Nreach Data'
 );
 
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup(
+    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:nreach_t3_data/Configuration/TypoScript/header.txt">'
+);
+
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
     $_EXTKEY,

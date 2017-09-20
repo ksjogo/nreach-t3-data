@@ -15,8 +15,8 @@
 							<config>
 								<type>select</type>
 								<foreign_table>tx_t3data_domain_model_entity</foreign_table>
-								<minitems>1</minitems>
-								<maxitems>10</maxitems>
+								<minitems>0</minitems>
+								<maxitems>5</maxitems>
 							</config>
 						</TCEforms>
 					</settings.entities>

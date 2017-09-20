@@ -1,6 +1,6 @@
 [global]
 plugin.tx_nreacht3data_plugin {
   settings {
-    entities = 1
+    entities =
   }
 }
