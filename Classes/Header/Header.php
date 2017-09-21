@@ -17,10 +17,7 @@ class Header
             if (empty($ids))
                return '';
 
-            $objectManager = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
-            $repository = $objectManager->get(\Nreach\T3Data\Domain\Repository\EntityRepository::class);
-
-            $text = Utility::textForEntities($ids, $repository);
+            $text = Utility::textForEntities($ids);
 
             return $text;
 

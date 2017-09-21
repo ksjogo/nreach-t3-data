@@ -3,37 +3,26 @@ namespace Nreach\T3Data\Controller;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Nreach\T3Data\Domain\Repository\EntityRepository;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+use Nreach\T3Data\Utility;
 
-/**
- * Ontoaut Controller of the Annotate extension
- *
- * @category    Controller
- */
-class SingleController extends Controller
+class SingleController
 {
-
-    /**
-     * EntityRepository
-     *
-     * @var \Nreach\T3Data\Domain\Repository\EntityRepository
-     * @inject
-     */
-    protected $entities;
-
-    /**
-     * index action for this controller.
-     * @return void
-     */
-    public function indexAction()
+    public function indexAction(ServerRequestInterface $request, ResponseInterface $response)
     {
-        $ids = explode(',', $this->settings['entities']);
-        // $blocks = array_map(function($id){
-        //     $entity = $this->entities->findByUid($id);
-        //     return sprintf("<script type=\"application/ld+json\">\n%s\n</script>", $entity->getJsonld());
-        // }, $ids);
-        // $result = implode("\n", $blocks);
-        $this->view->assign('jsonld', "crap");
+        xdebug_break();
 
-        return $this->view->render();
+        $text = "{}";
+
+        $uid = $request->getQueryParams()['uid'];
+
+        if (!empty($uid))
+            $text = Utility::textForEntities($uid, false);
+
+        $response = $response->withHeader('Content-Type', 'application/json+ld');
+        $response = $response->withHeader('Content-DIsposition', sprintf('%s.json', $uid));
+        $response->getBody()->write($text);
+        return $response;
     }
 }
